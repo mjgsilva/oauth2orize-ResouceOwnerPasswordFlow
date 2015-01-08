@@ -1,0 +1,22 @@
+{
+  "name": "oauth2orizeResourceOwnerPassword",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "express": "~4.10.6",
+    "body-parser": "~1.10.0",
+    "mongoose": "~3.8.21",
+    "mongoose-auto-increment": "~3.0.2",
+    "async": "~0.9.0",
+    "passport": "~0.2.1",
+    "passport-http": "~0.2.2",
+    "passport-oauth2-client-password": "~0.1.2",
+    "passport-http-bearer": "~1.0.1",
+    "oauth2orize": "~1.0.1",
+    "bcrypt-nodejs": "~0.0.3",
+    "random-strings": "~0.0.1"
+  }
+}
