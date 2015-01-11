@@ -34,7 +34,7 @@ userSchema.index({ email: 1 });
 
 autoIncrement.initialize(mongoose.connection);
 
-userSchema.plugin(autoIncrement.plugin, { model: 'User', field: 'id', startAt: 1, incrementBy: 1 });
+userSchema.plugin(autoIncrement.plugin, { model: 'User', field: 'userId', startAt: 1, incrementBy: 1 });
 
 userSchema.pre('save', function(callback) {
     var user = this;
