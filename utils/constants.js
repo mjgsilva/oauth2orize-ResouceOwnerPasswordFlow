@@ -1,0 +1,4 @@
+exports.TOKEN_TIMETOLIVE = 60*60*24; /* 24 hours */
+exports.TOKEN_LENGTH = 100;
+exports.CLIENTID_LENGTH = 25;
+exports.CLIENTSECRET_LENGTH = 50;
