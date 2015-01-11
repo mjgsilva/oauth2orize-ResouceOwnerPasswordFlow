@@ -22,7 +22,7 @@ exports.getProfile = function(req, res) {
     Token.findOne({ accessToken: accessTokenHash }, function(err, tokenDoc) {
         if(err) { res.send(err) }
         else {
-            User.find({ userId: tokenDoc.userId }).select({ _id: 0, name: 1, created: 1 }).exec(function (err, posts) {
+            User.findOne({ userId: tokenDoc.userId }).select({ _id: 0, name: 1, created: 1 }).exec(function (err, posts) {
                 if (err) { res.send(err) }
                 else { res.send(posts) }
             });
