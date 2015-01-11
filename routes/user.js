@@ -1,4 +1,6 @@
-var User = require('../models/user');
+var User = require('../models/user')
+    , Token = require('../models/token')
+    , utils = require('../utils/utils');
 
 exports.createUser = function(req, res) {
     var user = new User({
@@ -15,5 +17,15 @@ exports.createUser = function(req, res) {
 };
 
 exports.getProfile = function(req, res) {
-    res.json({ er: "123" })
+    var accessToken = utils.parseAccessToken(req.headers.authorization)
+    var accessTokenHash = utils.getHash(accessToken)
+    Token.findOne({ accessToken: accessTokenHash }, function(err, tokenDoc) {
+        if(err) { res.send(err) }
+        else {
+            User.find({ userId: tokenDoc.userId }).select({ _id: 0, name: 1, created: 1 }).exec(function (err, posts) {
+                if (err) { res.send(err) }
+                else { res.send(posts) }
+            });
+        }
+    });
 }
